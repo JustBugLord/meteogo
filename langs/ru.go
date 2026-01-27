@@ -1,6 +1,22 @@
-package ru
+package langs
 
-var storage = map[int]string{
+var windRu = map[WindDirection]string{
+	North:     "Север",
+	NorthEast: "Северо-Восток",
+	East:      "Восток",
+	SouthEast: "Юго-Восток",
+	South:     "Юг",
+	SouthWest: "Юго-Запад",
+	West:      "Запад",
+	NorthWest: "Северо-Запад",
+}
+
+func GetRussianNameDirection(direction WindDirection) (string, bool) {
+	name, ok := windRu[direction]
+	return name, ok
+}
+
+var wmcRu = map[int]string{
 	0:  "Образование облаков не наблюдается или не поддается наблюдению",
 	1:  "Облака, как правило, рассеиваются или становятся менее заметными",
 	2:  "Состояние неба в целом не меняется",
@@ -104,6 +120,6 @@ var storage = map[int]string{
 }
 
 func GetRussianWMC(wmc int) (string, bool) {
-	value, ok := storage[wmc]
+	value, ok := wmcRu[wmc]
 	return value, ok
 }

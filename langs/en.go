@@ -1,6 +1,22 @@
-package en
+package langs
 
-var storage = map[int]string{
+var windEn = map[WindDirection]string{
+	North:     "North",
+	NorthEast: "North-East",
+	East:      "East",
+	SouthEast: "South-East",
+	South:     "South",
+	SouthWest: "South-West",
+	West:      "West",
+	NorthWest: "North-West",
+}
+
+func GetEnglishNameDirection(direction WindDirection) (string, bool) {
+	name, ok := windEn[direction]
+	return name, ok
+}
+
+var wmcEn = map[int]string{
 	0:  "Cloud development not observed or not observable",
 	1:  "Cloud generally dissolving or becoming less developed",
 	2:  "State of sky on the whole unchanged",
@@ -104,6 +120,6 @@ var storage = map[int]string{
 }
 
 func GetEnglishWMC(wmc int) (string, bool) {
-	value, ok := storage[wmc]
+	value, ok := wmcEn[wmc]
 	return value, ok
 }
